@@ -8,7 +8,12 @@ fetch('https://api.3commas.io/public/api/v1/accounts', {
     'SECRET': apiSecret,
   }
 })
-.then(response => response.json())
+.then(response => {
+  if (!response.ok) {
+    throw new Error('Failed to fetch data');
+  }
+  return response.json();
+})
 .then(accounts => {
   const balances = accounts.map(account => {
     return `<li>${account.currency}: ${account.available}</li>`;
