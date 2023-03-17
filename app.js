@@ -6,7 +6,8 @@ fetch('https://api.3commas.io/public/api/v1/accounts', {
   headers: {
     'APIKEY': apiKey,
     'SECRET': apiSecret,
-  }
+  },
+  mode: 'cors' // Add this option
 })
 .then(response => {
   if (!response.ok) {
