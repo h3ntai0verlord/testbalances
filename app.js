@@ -2,12 +2,11 @@ const urlParams = new URLSearchParams(window.location.search);
 const apiKey = urlParams.get('api_key');
 const apiSecret = urlParams.get('secret');
 
-fetch('https://api.3commas.io/public/api/v1/accounts', {
+fetch(`https://crossorigin.me/https://api.3commas.io/public/api/v1/accounts`, {
   headers: {
     'APIKEY': apiKey,
     'SECRET': apiSecret,
-  },
-  mode: 'cors' // Add this option
+  }
 })
 .then(response => {
   if (!response.ok) {
